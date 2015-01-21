@@ -15,7 +15,7 @@ class button(pygame.sprite.Sprite):
         basicFont = pygame.font.Font("./res/manteka.ttf", 20)
         # super(self).__init__()
         pygame.sprite.Sprite.__init__(self)
-        self.text = basicFont.render('Hello world!', True, (0,0,0))
+        self.text = basicFont.render(text, True, (0,0,0))
         self.textRect = self.text.get_rect()
         
         self.image = pygame.Surface([width, height])

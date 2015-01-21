@@ -1,42 +1,10 @@
 import pygame, random, sys
 from pygame.locals import *
 from button import button
-
-WINDOWWIDTH = 0
-WINDOWHEIGHT = 0
-    
-BACKGROUNDCOLOR = (255, 255, 255)
-FPS = 60
-    
-FONT = 0
-
-TEXTCOLOR = (0,0,0)
-
-# def remove():
-    # for i in buttons:
-        # i.kill()
-
-buttons = pygame.sprite.Group()
-all_sprites = pygame.sprite.Group()
-
-def printer():
-    print("test")
-
-def test():
-    global WINDOWWIDTH
-    global WINDOWHEIGHT
-    print(WINDOWHEIGHT)
-    print(WINDOWWIDTH)
-    buttonA = button(WINDOWWIDTH/2, WINDOWHEIGHT/2, WINDOWWIDTH/2, WINDOWHEIGHT/2, "test2", lambda : (), True)
-    # buttonA.rect.x = 200
-    # buttonA.rect.y = 200
-    buttons.add(buttonA)
-    all_sprites.add(buttonA)
-    
+from vertMenu import vertMenu
+from globals import *
 
 def start_game():
-    global WINDOWWIDTH
-    global WINDOWHEIGHT
     pygame.init()
     main_clock = pygame.time.Clock()
 
@@ -93,27 +61,17 @@ def start_game():
                         terminate()
                     if event.key == K_RETURN:
                         return
-               
-                    
 
-
-    buttonA = button(0, WINDOWHEIGHT*2/3, WINDOWWIDTH/3, WINDOWHEIGHT/3, "test", test, False)
-    # buttonA.rect.x = random.randrange(WINDOWWIDTH)
-    # buttonA.rect.y = random.randrange(WINDOWHEIGHT)
-    buttons.add(buttonA)
-    all_sprites.add(buttonA)
+    text = ["test" + str(i) for i in range(4)]
+    actions = [lambda : () for i in range(4)]
+    vertMenu(0, WINDOWHEIGHT*2/3, WINDOWWIDTH, WINDOWHEIGHT/3, text, actions) 
     while True:
         window_surface.fill(BACKGROUNDCOLOR)
         window_surface.blit(background, (0,0))
-
-        
-        # for event in pygame.event.get():
         event_checker()
         main_clock.tick(FPS)
         all_sprites.update(window_surface)
-        # all_sprites.draw(window_surface)
         pygame.display.update()
-        # wait_key()
 
 start_game()
 
