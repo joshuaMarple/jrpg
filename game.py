@@ -2,6 +2,8 @@ import pygame, random, sys
 from pygame.locals import *
 from button import button
 from vertMenu import vertMenu
+from gridMenu import gridMenu
+from fightMenu import fightMenu
 from globals import *
 
 def start_game():
@@ -62,9 +64,7 @@ def start_game():
                     if event.key == K_RETURN:
                         return
 
-    text = ["test" + str(i) for i in range(4)]
-    actions = [lambda : () for i in range(4)]
-    vertMenu(0, WINDOWHEIGHT*2/3, WINDOWWIDTH, WINDOWHEIGHT/3, text, actions) 
+    fight_menu = fightMenu()
     while True:
         window_surface.fill(BACKGROUNDCOLOR)
         window_surface.blit(background, (0,0))

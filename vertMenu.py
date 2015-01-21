@@ -3,11 +3,6 @@ from pygame.locals import *
 from button import button
 from globals import *
 
-RED = (255, 0, 0)
-GRAY = (78, 99, 91)
-PURPLE = (55, 43, 148)
-BLACK = (0,0,0)
-
 class vertMenu(pygame.sprite.Sprite):
     def __init__(self, xpos, ypos, width, height, text, actions):
         global buttons
