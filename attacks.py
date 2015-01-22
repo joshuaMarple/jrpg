@@ -4,7 +4,8 @@ from globals import *
 
 def punch():
     cur_enemy = enemy_select()
-    cur_enemy.damage(selected_player.attack())
+    for i in selected_player:
+        cur_enemy.damage(i.attack())
     
 def kick():
     print("kicking!")

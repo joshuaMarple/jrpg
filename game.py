@@ -5,6 +5,7 @@ from fight import fight
 from globals import *
 
 def start_game():
+    global selected_player
     main_clock = pygame.time.Clock()
     window_surface = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
     FONT = pygame.font.Font("./res/manteka.ttf", 30)
@@ -32,7 +33,9 @@ def start_game():
                 mouse_pos = pygame.mouse.get_pos()
                 for i in players:
                     if i.rect.collidepoint(mouse_pos):
+                        selected_player.add(i)
                         i.click()
+                        selected_player.empty()
                 for i in buttons:
                     if i.rect.collidepoint(mouse_pos):
                         i.click()

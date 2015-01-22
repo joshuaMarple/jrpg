@@ -16,7 +16,7 @@ all_sprites = pygame.sprite.Group()
 players = pygame.sprite.Group()
 enemies = pygame.sprite.Group()
 
-selected_player = None
+selected_player = pygame.sprite.Group()
 
 FPS = 60
 TEXTCOLOR = BLACK
