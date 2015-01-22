@@ -4,7 +4,7 @@ from button import button
 from globals import *
 
 class gridMenu(pygame.sprite.Sprite):
-    def __init__(self, xpos, ypos, width, height, rows, cols, text, actions):
+    def __init__(self, xpos, ypos, width, height, rows, cols, text, actions, group=None):
         # global buttons
         # global all_sprites
         if (len(text) != len(actions)):
@@ -24,6 +24,8 @@ class gridMenu(pygame.sprite.Sprite):
             
             buttons.add(new_button)
             all_sprites.add(new_button)
+            if group != None:
+                group.add(new_button)
             col_num += 1
             if col_num >= cols:
                 col_num = 0

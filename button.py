@@ -1,10 +1,6 @@
 import pygame, random, sys
+from globals import *
 from pygame.locals import *
-
-RED = (255, 0, 0)
-GRAY = (78, 99, 91)
-PURPLE = (55, 43, 148)
-BLACK = (0,0,0)
 
 class button(pygame.sprite.Sprite):
     def __init__(self, xpos, ypos, width, height, text, click_function, kill_on_click):
@@ -46,20 +42,7 @@ class button(pygame.sprite.Sprite):
             # self.image.fill((255,0,0))
         # else:
         self.image.fill(self.color)
-        
-    def draw(self, surface):
-        print("test")
-        surface.blit(self.image, self.rect)
-        surface.blit(self.text, self.textRect)
-        
-        
-        # print("test update")
-        
-    def draw_text(text, font, surface, x, y):
-        textobj = font.render(text, 1, TEXTCOLOR)
-        textrect = textobj.get_rect()
-        textrect.topleft = (x, y)
-        surface.blit(textobj, textrect)
+
         
     def click(self):
         # if self.color == GRAY:

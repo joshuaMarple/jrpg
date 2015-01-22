@@ -1,30 +1,20 @@
 import pygame, random, sys
 from pygame.locals import *
 from button import button
-from vertMenu import vertMenu
-from gridMenu import gridMenu
-from fightMenu import fightMenu
+from fight import fight
 from globals import *
 
 def start_game():
-    pygame.init()
     main_clock = pygame.time.Clock()
-
     window_surface = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
-
-    WINDOWWIDTH = pygame.display.Info().current_w
-    WINDOWHEIGHT = pygame.display.Info().current_h
-
     FONT = pygame.font.Font("./res/manteka.ttf", 30)
     
     window_surface.fill(BACKGROUNDCOLOR)
-
     background = pygame.transform.scale(pygame.image.load('./res/space.jpg').convert_alpha(), (WINDOWWIDTH, WINDOWHEIGHT))
     
     def terminate():
         pygame.quit()
         sys.exit()
-
 
     def event_checker():
         for event in pygame.event.get():
@@ -33,8 +23,16 @@ def start_game():
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     wait_key()
+                if event.key == K_SPACE:
+                    if fight_menu.hidden == True:
+                        fight_menu.show()
+                    else:
+                        fight_menu.hide()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
+                for i in players:
+                    if i.rect.collidepoint(mouse_pos):
+                        i.click()
                 for i in buttons:
                     if i.rect.collidepoint(mouse_pos):
                         i.click()
@@ -64,7 +62,7 @@ def start_game():
                     if event.key == K_RETURN:
                         return
 
-    fight_menu = fightMenu()
+    fight_class = fight()
     while True:
         window_surface.fill(BACKGROUNDCOLOR)
         window_surface.blit(background, (0,0))
@@ -74,5 +72,3 @@ def start_game():
         pygame.display.update()
 
 start_game()
-
-
