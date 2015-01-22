@@ -3,8 +3,8 @@ from globals import *
 from fightMenu import fightMenu
 from pygame.locals import *
 
-class player(pygame.sprite.Sprite):
-    def __init__(self, name, image, health, actions, xpos, ypos, width, height):
+class enemy(pygame.sprite.Sprite):
+    def __init__(self, name, image, health, xpos, ypos, width, height):
         self.name = name
         self.health = health
         self.image = pygame.image.load(image).convert_alpha()
@@ -13,7 +13,6 @@ class player(pygame.sprite.Sprite):
         # self.image.fill(RED)
         self.rect.x = xpos
         self.rect.y = ypos
-        self.actions = actions
         pygame.sprite.Sprite.__init__(self)
         
     def damage(self, pain):
@@ -27,8 +26,6 @@ class player(pygame.sprite.Sprite):
     def update(self, surface):
         surface.blit(self.image, self.rect)
         
-    def click(self):
-        global selected_player
-        selected_player = self
-        print(selected_player)
-        fight_menu = fightMenu(self.actions)
+    # def click(self):
+        
+    #     fight_menu = fightMenu()
