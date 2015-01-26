@@ -39,8 +39,11 @@ def start_game():
                         for j in globals.players:
                             j.unselect()
                         i.click()
+                        # for j in globals.buttons:
+                        #     print(j)
                         # selected_player.empty()
                 for i in globals.buttons:
+                    print(i)
                     if i.rect.collidepoint(mouse_pos):
                         i.click()
             if event.type == pygame.MOUSEBUTTONUP:

@@ -23,7 +23,7 @@ class fightMenu():
             
         
         for i in action_text:
-            print(i)
+            # print(i)
             actions.append(action_from_text(i.replace(" ", "_")))
             
         # actions = [lambda: eval(i)(player) for i in action_text]
@@ -38,13 +38,15 @@ class fightMenu():
         self.fight_buttons.add(new_info)
         all_sprites.add(new_info)
         self.hidden = False
+        # for i in self.fight_buttons:
+        print(self.fight_buttons)
 
     def show(self):
         for i in self.fight_buttons:
             if all_sprites not in i.groups():
                 all_sprites.add(i)
-                if i is button:
-                    buttons.add(i)
+            if isinstance(i, button):
+                buttons.add(i)
         self.hidden = False
     def hide(self):
         self.hidden = True

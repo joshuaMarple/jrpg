@@ -47,7 +47,7 @@ class button(pygame.sprite.Sprite):
     def click(self):
         # if self.color == GRAY:
         self.color = PURPLE
-        print(self.action)
+        # print(self.action)
         self.action()
         # else:
             # self.color = GRAY
