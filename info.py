@@ -1,8 +1,8 @@
 import pygame, random, sys
 from pygame.locals import *
-from button import button
-from vertMenu import vertMenu
-from gridMenu import gridMenu
+from button import *
+# from vertMenu import vertMenu
+# from gridMenu import gridMenu
 from globals import *
 
 class info(pygame.sprite.Sprite):

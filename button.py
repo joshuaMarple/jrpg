@@ -26,8 +26,8 @@ class button(pygame.sprite.Sprite):
         self.action = click_function
         self.kill_on_click = kill_on_click
         
-    def click(self, window_surface):
-        print("test click")
+    # def click(self, window_surface):
+        # print("test click")
         
     def update(self, surface):
         self.textRect.centerx = self.rect.centerx
@@ -47,6 +47,7 @@ class button(pygame.sprite.Sprite):
     def click(self):
         # if self.color == GRAY:
         self.color = PURPLE
+        print(self.action)
         self.action()
         # else:
             # self.color = GRAY

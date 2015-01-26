@@ -14,11 +14,15 @@ class player(pygame.sprite.Sprite):
         self.rect.x = xpos
         self.rect.y = ypos
         self.actions = actions
+        self.fight_menu = fightMenu(self, self.actions)
+        self.fight_menu.hide()
         pygame.sprite.Sprite.__init__(self)
         
     def damage(self, pain):
         self.health -= pain
         if self.health < 0:
+            self.fight_menu.hide()
+            # del self.fight_menu
             self.kill()
 
     def attack(self):
@@ -28,7 +32,10 @@ class player(pygame.sprite.Sprite):
         surface.blit(self.image, self.rect)
         
     def click(self):
-        global selected_player
-        selected_player = self
-        print(selected_player)
-        fight_menu = fightMenu(self.actions)
+        # global selected_player
+        # selected_player = self
+        # print(selected_player)
+        self.fight_menu.show()
+
+    def unselect(self):
+        self.fight_menu.hide()

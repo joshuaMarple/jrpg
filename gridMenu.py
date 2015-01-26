@@ -18,8 +18,14 @@ class gridMenu(pygame.sprite.Sprite):
         y_delta = height/cols
         col_num = 0
         row_num = 0
+
+        # for i in actions:
+            # i()
+
         
         for i in range(num_buttons):
+            print(actions[i])
+            
             new_button = button(xpos+x_delta * col_num, ypos + y_delta * row_num, x_delta, y_delta, text[i], actions[i], False)
             
             buttons.add(new_button)
