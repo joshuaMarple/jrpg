@@ -34,14 +34,24 @@ class fightMenu():
         # for act in actions:
             # act()
         gridMenu(0, WINDOWHEIGHT*2/3, WINDOWWIDTH*3/4, WINDOWHEIGHT/3, 2, 2, action_text, actions, self.fight_buttons)
-        new_info = info(WINDOWWIDTH * 3/4, WINDOWHEIGHT *2/3, WINDOWWIDTH * 1/4, WINDOWHEIGHT/3, "Player 1 | 10 \n Player 2 | 12 \n Player 3 | 21", "right")
-        self.fight_buttons.add(new_info)
-        all_sprites.add(new_info)
+
+        cur_status = ""
+        for i in players:
+            cur_status += str(i.name) + " | " + str(i.health) + "\n"
+        
+        self.player_info = info(WINDOWWIDTH * 3/4, WINDOWHEIGHT *2/3, WINDOWWIDTH * 1/4, WINDOWHEIGHT/3, cur_status, "right")
+        self.fight_buttons.add(self.player_info)
+        all_sprites.add(self.player_info)
         self.hidden = False
         # for i in self.fight_buttons:
-        print(self.fight_buttons)
+        # print(self.fight_buttons)
 
     def show(self):
+        cur_status = ""
+        for i in players:
+            cur_status += str(i.name) + " | " + str(i.health) + "\n"
+        self.player_info.insert_text(cur_status)
+        
         for i in self.fight_buttons:
             if all_sprites not in i.groups():
                 all_sprites.add(i)
@@ -55,3 +65,8 @@ class fightMenu():
             all_sprites.remove(i)
             buttons.remove(i)
         
+    def update(self):
+        cur_status = ""
+        for i in players:
+            cur_status += str(i.name) + " | " + str(i.health) + "\n"
+        self.player_info.insert_text(cur_status)

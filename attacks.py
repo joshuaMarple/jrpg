@@ -5,10 +5,11 @@ from globals import *
 
 def punch(player):
     # print("punch!")
-    popup("test")
+    cur_pop = popup("Select an enemy")
     cur_enemy = enemy_select()
     if cur_enemy == None:
         return
+    cur_pop.destroy()
         
     # for i in selected_player:
     cur_enemy.damage(player.attack())
@@ -23,7 +24,6 @@ def suicide(player):
     
 def magic(player):
     print("magic!")
-
 
 def hit(player):
     print("Hit!")

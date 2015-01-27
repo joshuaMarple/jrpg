@@ -29,6 +29,7 @@ class player(pygame.sprite.Sprite):
         return 10 # for now
         
     def update(self, surface):
+        self.fight_menu.update()
         surface.blit(self.image, self.rect)
         
     def click(self):

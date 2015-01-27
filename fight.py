@@ -24,9 +24,6 @@ class fight():
         enemy1 = enemy("Archibald", "./res/player.png", 20, WINDOWWIDTH * 1/4, WINDOWHEIGHT * 1/4, 50, 50 )
         all_sprites.add(enemy1)
         enemies.add(enemy1)
-
-        
-
         
     # player2 = player("Archibald")
     # player3 = player("Ornstein")

@@ -43,7 +43,7 @@ def start_game():
                         #     print(j)
                         # selected_player.empty()
                 for i in globals.buttons:
-                    print(i)
+                    # print(i)
                     if i.rect.collidepoint(mouse_pos):
                         i.click()
             if event.type == pygame.MOUSEBUTTONUP:

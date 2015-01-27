@@ -22,3 +22,6 @@ class popup():
         # print(time.time() - self.start)
         if (time.time() - self.start) > self.time:
             self.info.kill()
+
+    def destroy(self):
+        self.info.kill()

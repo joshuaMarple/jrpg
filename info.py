@@ -14,12 +14,7 @@ class info(pygame.sprite.Sprite):
         
         pygame.sprite.Sprite.__init__(self)
         self.text_list = []
-        text = text.split("\n")
-        for i in text:
-            # print(i)
-            cur_text = self.basicFont.render(i.strip(), True, (0,0,0))
-            cur_textRect = cur_text.get_rect()
-            self.text_list.append((i.strip(), cur_text, cur_textRect))
+        self.insert_text(text)
         # print self.text_list
         self.image = pygame.Surface([width, height])
         self.inset_img = pygame.Surface([width-10, height-10])
@@ -51,3 +46,11 @@ class info(pygame.sprite.Sprite):
         mouse_pos = pygame.mouse.get_pos()
         self.image.fill(self.color)
         
+    def insert_text(self, text):
+        self.text_list = []
+        text = text.split("\n")
+        for i in text:
+            # print(i)
+            cur_text = self.basicFont.render(i.strip(), True, (0,0,0))
+            cur_textRect = cur_text.get_rect()
+            self.text_list.append((i.strip(), cur_text, cur_textRect))
